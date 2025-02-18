@@ -12,5 +12,5 @@ Video Link
 https://github.com/rrs301/AI-Resume-Builder
 The Man Github
 
-https://go.clerk.com/5RpIr7T
+https://ai-resume-builder-opal.vercel.app/
 Website Link
