@@ -9,7 +9,7 @@ The Excel Playlist
 https://youtu.be/RiUh_8VTGYM?si=Wl1GAnbcdqjB1pON
 Video Link 
 
-https://github.com/rrs301/AI-Resume-Builder
+https://drive.google.com/file/d/1l6JqxyOhuANpl2cPn9ZT5qZbRCumsdxI/view?usp=sharing
 The Man Github
 
 https://ai-resume-builder-opal.vercel.app/
