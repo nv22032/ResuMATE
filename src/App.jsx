@@ -1,15 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import { Button } from "@/components/ui/button"
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      SHTOMBA KHOK
-    </>
+    <div className='p-4 flex gap-4'>
+      <button>Deafult Button</button>
+      <Button>Click me</Button>
+    </div>
   )
 }
 
