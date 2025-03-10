@@ -1,4 +1,4 @@
-import { PlusSquare } from 'lucide-react'
+import { Loader2, PlusSquare } from 'lucide-react'
 import React, { useState } from 'react'
 import {
     Dialog,
@@ -13,6 +13,7 @@ import { Input } from '@/components/ui/input'
 import { v4 as uuidv4 } from 'uuid';
 import GlobalApi from './../../../service/GlobalApi'
 import { useUser } from '@clerk/clerk-react'
+import { useNavigate } from 'react-router-dom'
 
 function AddResume() {
 
@@ -20,7 +21,7 @@ function AddResume() {
     const [resumeTitle,setResumeTitle]=useState();
     const {user}=useUser();
     const[loading,setLoading]=useState(false)
-
+    const navigation=useNavigate();
     const onCreate=()=>{
         setLoading(true)
         const uuid=uuidv4();
@@ -34,11 +35,14 @@ function AddResume() {
         }
 
         GlobalApi.CreateNewResume(data).then(resp=>{
-            console.log(resp);
+            console.log(resp.data.data.documentId);
             if(resp)
             {
                 setLoading(false);
+                navigation('/dashboard/reume/'+resp.data.data.documentId+"/edit");
             }
+        },(error)=>{
+            setLoading(false);
         })
     }
     return (
@@ -64,8 +68,12 @@ function AddResume() {
                 <div className='flex justify-end gap-5'>
                     <Button onClick={()=>setOpenDialog(false)} variant="ghost">Cancel</Button>
                     <Button 
-                        disabled={!resumeTitle}
-                    onClick={()=>onCreate()}>Create</Button>
+                        disabled={!resumeTitle||loading}
+                    onClick={()=>onCreate()}>
+                        {loading?
+                        <Loader2 className='animate-spin' /> :'Create'
+                        }
+                        </Button>
                 </div>
                 </DialogHeader>
             </DialogContent>
