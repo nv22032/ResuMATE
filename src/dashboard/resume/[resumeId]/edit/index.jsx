@@ -13,7 +13,7 @@ function EditResume() {
     },[])
 
   return (
-    <ResumeInfoContext.Provider value={{}}>
+    <ResumeInfoContext.Provider value={{resumeInfo,setResumeInfo}}>
     <div className='grid grid-cols md:grid-cols-2 p-10 gap-10'>
         {/* Form Section */}
           <FormSection/>
