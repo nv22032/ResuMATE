@@ -1,7 +1,8 @@
 import React from 'react'
 
 function FormSection() {
-  const [activeFormIndex,setActiveFormIndex]=useState(2);
+  const [activeFormIndex,setActiveFormIndex]=useState(1);
+  const [enabledNext,setEnableNext]=useState(false)
   return (
     <div>
       <div className='flex justify-between items-center'>
@@ -12,7 +13,9 @@ function FormSection() {
           &&<Button size='sm'
           onClick={()=>setActiveFormIndex(activeFormIndex-1)}>
           <ArrowLeft/> </Button>}
-          <Button className='flex gap-2' size='sm'
+          <Button
+          disabled={!enabledNext} 
+          className='flex gap-2' size='sm'
           onClick={()=>setActiveFormIndex(activeFormIndex+1)}
           > Next 
           <ArrowRight/> </Button>
@@ -20,7 +23,7 @@ function FormSection() {
       </div>
 
       {/* Personal Detail */}
-      {activeFormIndex==1?  <PersonalDetail/>
+      {activeFormIndex==1?  <PersonalDetail enabledNext={(v)=>setEnableNext(v)}/>
       :null}
       {/* Summery */}
 
